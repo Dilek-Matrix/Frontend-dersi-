@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="form-container">
+    <h2>Kullanıcı Kayıt Formu</h2>
+    
+    <form id="userForm">
+        <div class="form-group">
+            <label for="firstName">Adı</label>
+            <input type="text" id="firstName" placeholder="Adınızı giriniz" required>
+        </div>
+
+        <div class="form-group">
+            <label for="lastName">Soyadı</label>
+            <input type="text" id="lastName" placeholder="Soyadınızı giriniz" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Telefon Numarası</label>
+            <input type="tel" id="phone" placeholder="05xx xxx xx xx" required>
+        </div>
+
+        <div class="form-group">
+            <label for="imageFile">Görsel Seçiniz</label>
+            <input type="file" id="imageFile" accept="image/*" required>
+        </div>
+        <button type="submit" class="submit-btn">Gönder</button>
+    </form>
+
+    <div id="result"></div>
+</div>
+
+<script>
+    // Form elemanını seçiyoruz
+    const form = document.getElementById('userForm');
+    const resultDiv = document.getElementById('result');
+
+    // Formun gönderilme (submit) olayını yakalıyoruz
+    form.addEventListener('submit', function(event) {
+        // Sayfanın yenilenmesini engelliyoruz
+        event.preventDefault();
+
+        // Input değerlerini alıyoruz
+        const firstName = document.getElementById('firstName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        
+        // Dosya inputundan seçilen görseli alıyoruz
+        const fileInput = document.getElementById('imageFile');
+        const file = fileInput.files[0]; 
+
+        // JavaScript kodlarımız burada çalışıyor
+        console.log("Form Başarıyla Gönderildi!");
+        console.log("Adı:", firstName);
+        console.log("Soyadı:", lastName);
+        console.log("Telefon:", phone);
+        console.log("Seçilen Dosya Adı:", file ? file.name : "Dosya seçilmedi");
+        // Alınan verileri sayfada göstermek için HTML içeriği oluşturuyoruz
+        resultDiv.style.display = 'block';
+        resultDiv.innerHTML = `
+            <strong>Form Verileri Alındı (JS Çalıştı):</strong><br>
+            <b>Ad:</b> ${firstName}<br>
+            <b>Soyad:</b> ${lastName}<br>
+            <b>Telefon:</b> ${phone}<br>
+            <b>Görsel Adı:</b> ${file ? file.name : 'Seçilmedi'}
+        `;
+
+        // İsteğe bağlı: Gönderim sonrası formu temizlemek istersen alt satırı aktifleştirebilirsin
+        // form.reset();
+    });
+</script>
+</body>
+</html>

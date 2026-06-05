@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+    </script>
+</head>
+<body>
+    <form action="" id="bilgi-formu">
+        <h1>Giriş Bilgileri</h1>
+        
+
+        
+        <label for="">Ad:</label>
+        <input type="text" placeholder="Adınızı giriniz" id="ad"><br><br>
+        <label for="">Soyad:</label>
+        <input type="text" id="soyad"><br><br>
+        <label for="">Telefon:</label>
+        <input type="tel" id="tel"><br><br>
+        <input type="file"><br><br>
+        <button type="submit" id="gönder">Gönder</button>
+        <button type="reset" id="temizle">Temizle</button>
+        
+
+        <script>
+            const form=document.getElementById("bilgi-formu");
+            const sonucDiv = document.getElementById("sonuc");
+
+            form.addEventListener("submit", function(e) {
+                e.preventDefault();
+            
+            const isim = document.getElementById("isim").value;
+            const soyisim = document.getElementById("soyisim").value;
+            const resimInput = document.getElementById("resim");
+
+            document.getElementById("yaz-isim").textContent = isim;
+            document.getElementById
+
+            })
+
+            form.addEventListener("submit", function (){
+                
+            })
+            const inputAd=document.getElementById("ad");
+            const inputSoyad=document.getElementById("soyad");
+            const inputTel =document.getElementById("tel");
+            const butonGönder=document.getElementById("gönder");
+            const butonTemizle=document.getElementById("temizle");
+
+
+
+        </script>
+        
+        
+    </form>
+</body>
+</html>

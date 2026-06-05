@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Merhaba Sinif</h1>
+    <button id="change">Degistir</button>
+    <p id="yazi">Merhaba Tekrar</p>
+    <label for="">Adınızı giriniz</label>
+    <input type="text" id="ad" placeholder="Adınızı giriniz">
+
+    <script>
+        
+        const buton = document.getElementById('change');
+        const yazi = document.getElementById('yazi');
+        let tiklanmasayisi = 0;
+
+        buton.addEventListener('click', function() {
+            tiklanmasayisi++;
+            if (tiklanmasayisi % 2 === 0) {
+                yazi.textContent = 'Butona Tiklandi 2 4 6';
+            } else {
+                yazi.textContent = 'Butona Tiklandi Yeni 1 3 5';
+            }
+        });
+        setTimeout(() => {
+           var x=10;
+           var y=20;
+           sonuc=x+y;
+           console.log(sonuc); 
+
+        }, 60000);
+        
+$
+        console.log("console yazı yazdım");
+        
+    </script>
+</body>
+</html>
