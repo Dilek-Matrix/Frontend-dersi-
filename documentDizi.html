@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Linkler</h2>
+    <a href="index.html">Anasayfa</a> |
+    <a href="bizkimiz.html">Biz Kimiz</a> |
+    <a href="iletisim.html">İletişim</a> |
+    <a href="test.html">Test</a>
+    <h2>Resimler</h2>
+    <img src="image/bayrak.jpg" alt="">
+    <img src="image/bayrak2.jpg" alt="">
+    <form name="test">
+      Ad:  <input type="text"><br><br>
+      Soyad: <input type="text"><br><br>
+      <input type="submit" value="gönder" onclick="yaz()"><input type="reset" value="sıfırla" onclick="yaz()">
+    </form>
+    
+
+    <script>
+        // document dizileri
+        document.write("Link sayısı:"+document.links.length+"<br>");
+        document.write("Resim sayısı:"+document.images.length+"<br>");
+        document.write("Form eleman sayısı:"+document.forms["test"].length+"<br>");
+
+        function yaz(){
+            var test=document.forms["test"];
+            for(var i=0; i<test.length; i++)
+            document.write(test.elements[i].value+"<br>");
+        }
+
+
+    </script>
+</body>
+</html>

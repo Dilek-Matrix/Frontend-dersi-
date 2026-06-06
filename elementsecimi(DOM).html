@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .renk {
+            color: white;
+            background-color: black;
+        }
+
+        .kenarlik {
+            border: 2px solid red;
+            width: 400px;
+            height: 150px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    // 28.05.2025 javascript dersi
+
+    
+    <div id="bolum1" style="background-color:aqua">
+        <p class="renk">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat, dolor!</p>
+        <p>Lorem ipsum dolor sit.</p>
+        <div>
+            <p>Lorem, ipsum.</p>
+        </div>
+        <h2>Lorem, ipsum dolor.</h2>
+    </div>
+    <p class="renk">lorem.</p>
+    <div id="bolum2" class="renk kenarlik">
+        <h1>başlık</h1>
+    </div>
+    <a href="">tıkla</a>
+    <form action="">
+        <input type="text" name="ad">
+    </form>
+
+
+
+
+
+    <script>
+        // id, class, name, etiket üzerinden elementlere getElementBy... diye ulaşabiliyoruz.
+
+        var nesne;
+        nesne = window.document.title;
+        nesne = window.document.links;
+        nesne = document.forms;
+        nesne = document.body;
+        nesne = document.getElementsByTagName("div")[1]; // yakaladığımız element dizi olarak dönüyorsa indis numarasıyla ulaşabiliriz.
+        nesne = document.getElementsByTagName("div").item(0); // ya da elementlere item ile de ulaşabiliriz.
+        nesne = document.getElementById("bolum1");
+        nesne = document.getElementsByClassName("renk").item(0);
+        nesne = document.getElementsByName("ad"); //sadece formların input name lerinde kullanılıyor.
+
+        // querySelector ile elemenlere ulaşmak
+
+        nesne = document.querySelector("div"); //querySelector ı kullandığımda sadece ilk div e erişiyorum.
+        nesne = document.querySelectorAll("div").item(1);// querySelectorAll dediğimizde ise tüm div etiketlerini listeler.
+        nesne = document.querySelector("#bölüm1");
+        nesne = document.querySelector(".renk");
+        nesne = document.querySelectorAll(".renk");
+        nesne = document.getElementById("bolum1").children.item(1);
+        nesne = document.getElementById("bolum2").previousElementSibling;
+        nesne = document.getElementById("bolum2").nextElementSibling;
+        nesne = document.querySelector(".renk").parentElement;
+        nesne = document.getElementsByClassName("renk").item(0).parentElement;
+        nesne = document.getElementsByTagName("body").item(0).children;
+        nesne = document.body;
+        nesne = document.querySelector("div p"); //Bu bir kombinasyon bu aramının sonucu bize ilk div i yakalar boşluk div in de içindeki ilk paragrafı yakalamış olduk.
+        nesne = document.querySelectorAll("div p"); //All dersek bütün div lerin içindeki tüm paragrafları getirir.
+        nesne = document.querySelector("#bolum1 .renk");
+        nesne = document.querySelector("#bolum1").children[2].children[0];
+        document.getElementById("bolum1").className = "kenarlik";
+        document.getElementById("bolum1").style = "color:red";
+
+        document.getElementById("bolum1").id += "renk";//id="bolum1renk" olur.
+        document.getElementById("bolum1").id = "renk"; // id bolum1 tamamen silinir ve id si renk olur.
+
+
+
+
+
+        console.log(nesne);
+    </script>
+</body>
+
+</html>

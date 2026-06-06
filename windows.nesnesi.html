@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows Nesnesi</title>
+    <script>
+        console.log(window);
+        var sayi = 10;
+        console.log(window);
+        var nesne;
+
+        nesne = window.location; // property
+        nesne = window.location.href;
+        nesne = window.location.hostname;
+        nesne = window.outerHeight; //pencerenin en uc noktasından başlayarak tüm yüksekliğini gösterir.
+        nesne = window.innerHeight; // sadece body alanın yüksekliği
+        nesne = scrollX;
+
+        nesne = window.document.all; //koleksiyon haline yani dizi şeklinde listeler.
+        nesne = window.document;
+        nesne = document.all[3];
+        nesne = document.title;
+        document.title="Yeni Başlık";
+        nesne = document.title;
+        nesne = document.head;
+        nesne = document.scripts;
+        nesne = document.characterSet; //UTF-8
+        
+
+
+
+
+
+
+
+
+
+        console.log(nesne);
+
+    </script>
+    <script src=""></script>
+</head>
+
+<body>
+
+</body>
+
+</html>
