@@ -4,9 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"/>
+
 </head>
 <body>
-    <h1>Relative Nedir?</h1>
+    <h1 class="text-4xl font-bold flex justify-center mt-6 mb-4">Relative Nedir?</h1>
+    <p class="text-[21px] font-bold flex justify-center">CSS'te position: relative; (göreceli konumlandırma), bir elementi web sayfasındaki kendi normal konumunu referans alarak hareket ettirmek için kullanılır.</p>
+
+    <p class="text-[21px] font-bold flex justify-center">Bir elemente relative verdiğinizde, element ilk başta sayfa düzeninde nerede duruyorsa orada kalır. Ancak ona yön koordinatları verdiğinizde, asıl yerini boş bırakarak o konumdan itibaren kayar.</p>
+
+    <h2 class="text-2xl font-bold flex justify-center mt-6 mb-4" >Relative Yanında Neler Kullanılır?</h2>
+    <p class="text-[21px] font-bold flex justify-center">position: relative; tek başına elementin yerini değiştirmez. Onu hareket ettirmek veya yönlendirmek için Yön Özellikleri ile birlikte kullanılır:</p>
+
+    <ul class="text-[21px] font-bold flex flex-col list-disc w-fit mx-auto justify-center">
+    <li>top : Elementi aşağı iter.</li>
+    <li>bottom : Elementi yukarı iter.</li>
+    <li>left : Elementi sağa iter.</li>
+    <li>right : Elementi sola iter.</li>
+    </ul>  <br><br>
+
+
+    <h2>Tailwind Kod Örnekleri</h2>
+    <h3>Sadece Elementi Kendi Yerinden Oynatmak</h3>
+    <p>relative top-5 left-7 sınıfları, elemente "relative ol, üstten ve soldan şu kadar piksel kay" talimatını tek satırda verir.</p>
+
+<div class="w-48 h-12 bg-gray-300 m-2">Ben normal bir kutuyum.</div>
+
+<div class="relative top-5 left-7 w-48 h-12 bg-blue-500 m-2 text-white">
+  Ben yerimi terk edip kayacağım!
+</div>
+
+<div class="w-48 h-12 bg-gray-300 m-2">Ben de normal bir kutuyum.</div><br><br>
+
+<h2>absolute Elemanı İçeride Tutmak (En Sık Kullanım)</h2>
+<p>Dış Kutuda (relative): Karta relative sınıfını verdik. Bu sayede kart, içerideki kırmızı etiket için bir sınır duvarı oldu.</p>
+<p>İçerideki Etikette (absolute top-3 right-3): Etikete absolute dedik ve top-3 right-3 ile kartın sağ üst köşesinden içeriye doğru hizaladık. Eğer dış kutuya relative vermeseydik, bu etiket karttan dışarı fırlayıp tüm ekranın sağ üst köşesine giderdi.</p>
+<div class="relative w-80 p-5 bg-white border border-gray-200 rounded-lg shadow">
+  <h3 class="text-lg font-bold">Ürün Başlığı</h3>
+  <p class="text-gray-600">Ürün açıklaması buraya gelir.</p>
+  
+  <span class="absolute top-3 right-3 bg-red-500 text-white text-xs px-2 py-1 rounded">
+    Yeni
+  </span>
+</div>
+<br><br>
+<h2>Dersteki kod örneği</h2>
+<p>Burada body etiketine relative verilmiş. Bu demektir ki, sayfa içindeki herhangi bir elemente absolute verdiğinizde ve o elementin üstteki üst babalarında hiç relative yoksa, o element tüm sayfayı (body'yi) baz alarak konumlanacaktır.</p>
+<body class="bg-blue-50 text-gray-800 font-sans min-h-screen flex flex-col md:flex-row relative"> Dersteki relative kullanımız şöyle oldu. öncelikle relative nedir, tanımını yap . sonrasında yanında neler kullanılır örnek ver. kodlarla
     
 </body>
 </html>

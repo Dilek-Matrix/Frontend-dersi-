@@ -4,44 +4,132 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"/>
 
     <title>Document</title>
   </head>
-  <body
-    class="bg-gray-50 text-gray-800 font-sans min-h-screen p-8 flex flex-col items-center gap-6"
-  >
+
+
+
+  <!--bg-gray-50: Arka plan rengini çok açık bir gri yapar.
+      text-gray-800: Yazı rengini koyu gri yapar (siyaha yakın, gözü yormayan bir ton)
+      font-sans: Yazı tipini tırnaksız/modern bir font stili (sans-serif) yapar.
+      min-h-screen: Sayfa yüksekliğinin en az ekran boyutu kadar olmasını sağlar (arka plan yarım kalmaz).
+      p-8: Sayfanın dört bir yanından içeriye doğru geniş bir boşluk (padding) bırakır.
+      flex: Esnek kutu modelini (Flexbox) aktif eder, içindeki elemanları hizalamaya hazır hale getirir.
+      flex-col: İçindeki elemanların yan yana değil, üst üste (dikey) sıralanmasını sağlar.
+      items-center: Üst üste sıralanan bu elemanları yatayda tam ortalar.
+      gap-6: Üst üste duran o ana elemanların arasına eşit miktarda dikey boşluk koyar. -->
+  <body class="bg-gray-50 text-gray-800 font-sans min-h-screen p-8 flex flex-col items-center gap-6">
+
+
+
+   <!--text-center: Bu kutunun (div) içindeki tüm yazıları ve elemanları yatayda ortalar.
+       max-w-md: Kutunun genişliğine üst sınır koyar; ekran ne kadar büyürse büyüsün kutunun genişliği maksimum orta boyuta (medium width - yaklaşık 448 piksel) ulaşabilir, daha fazla yayılamaz.--> 
     <div class="text-center max-w-md">
+
+
+
+    <!--text-xl: Yazı boyutunu büyük (xtra large - yaklaşık 20 piksel) yapar.
+        font-bold: Yazı stilini kalın (bold) yapar.
+        text-gray-900: Yazı rengini en koyu gri tonu yapar (tam siyah yerine daha yumuşak, modern bir siyah).
+        mb-2: Başlığın altına biraz boşluk ekler (margin-bottom - yaklaşık 8 piksel), böylece altındaki metin başlığa yapışmaz.-->
       <div>
         <h1 class="text-xl font-bold text-gray-900 mb-2">
           Fiyatlandırma Kartı Flex Column
         </h1>
+
+
+
+      <!--text-xs: Yazı boyutunu ekstra küçük (extra small - yaklaşık 12 piksel) yapar.
+          text-gray-500: Yazı rengini orta tonda, soluk bir gri yapar (açıklama metinleri için idealdir).-->
         <p class="text-xs text-gray-500">
-          Kart elemanları üst üste sıralamak için flex-col, öne çıkan rozeti en
+          Kart elemanları üst üste sıralamak için flex-cl, öne çıkan rozeti en
           üstte göstermek için ise order-first sınıf
         </p>
       </div>
 
+
+
+
+      <!--w-full: Kartın genişliğini ilk başta bulunduğu alanın %100'ünü kaplayacak şekilde ayarlar.
+          max-w-xs: Kartın aşırı büyümesini engeller; genişliğe ekstra küçük (extra small - yaklaşık 320 piksel) bir üst sınır koyar.
+          bg-white: Kartın arka plan rengini beyaz yapar.
+          border: Karta ince bir çerçeve/çizgi ekler.
+          border-gray-200: Eklenen bu çerçevenin rengini çok açık bir gri yapar.
+          rounded-2xl: Kartın keskin köşelerini oldukça yumuşak ve oval (yuvarlak) hale getirir.
+          p-6: Kartın içindeki elemanların kenarlara yapışmaması için her yönden içeriye doğru geniş bir boşluk (padding) bırakır.flex: Kartın içindeki elemanları hizalamak için esnek kutu modelini (Flexbox) aktif eder.
+          flex-col: Kartın içindeki elemanların (başlık, fiyat, buton vb.) yan yana değil, üst üste (dikey) sıralanmasını sağlar.gap-4: Üst üste sıralanan bu elemanların arasına eşit miktarda dikey boşluk koyar.
+          shadow-sm: Kartın altına hafif ve modern bir gölge efekti vererek sayfadan yukarıda duruyormuş hissi katar.-->
       <div class="w-full max-w-xs bg-white border border-gray-200 rounded-2xl p-6 flex flex-col gap-4 shadow-sm">
         <div>
+
+
+
+      <!--text-sm: Yazı boyutunu küçük (small - yaklaşık 14 piksel) yapar.
+          font-bold: Yazı stilini kalın yapar.
+          text-gray-800: Yazı rengini koyu gri yapar (siyaha yakın, keskin bir ton).
+          uppercase: Küçük harfle yazılmış olsa bile metindeki tüm harfleri büyük harfe çevirir.
+          tracking-wider: Kelimedeki harflerin arasını açar (daha geniş/ferah bir görünüm sağlar).-->
             <h2 class="text-sm font-bold text-gray-800 uppercase  tracking-wider">Standart Paket</h2>
+
+
+
+      <!--text-2xl: Yazı boyutunu oldukça büyük (yaklaşık 24 piksel) yaparak fiyatı öne çıkarır.
+          font-extrabold: Yazı stilini en kalın (ekstra kalın) hale getirir.
+          text-gray-900: Yazı rengini en koyu gri tonu (neredeyse siyah) yapar.
+          mt-1: Fiyatın, hemen üstündeki paket başlığına çok fazla yapışmaması için üstten azıcık bir dış boşluk (margin-top) bırakır.-->
             <p class="text-2xl font-extrabold text-gray-900 mt-1">99 TL / Ay</p>
         </div>
+
+
+
+      <!--px-2.5: Rozetin sağından ve solundan içeriye doğru orta düzeyde bir boşluk (padding-x ekseni) bırakır.
+          py-1: Rozetin üstünden ve altından içeriye doğru az bir boşluk (padding-y ekseni) bırakarak ince bir görünüm verir.
+          bg-indigo-100: Arka plan rengini çok açık bir mor/indigo tonu yapar.
+          border: Rozetin etrafına ince bir çerçeve/çizgi ekler.
+          border-indigo-700: Bu çerçevenin rengini koyu bir mor/indigo yapar.
+          text-[9px]: Yazı boyutunu tam olarak 9 piksel olacak şekilde özel olarak çok küçük ayarlar.
+          font-extrabold: Yazıyı dikkat çekmesi için en kalın haliyle yazar.
+          rounded-full: Köşeleri tamamen ovalleştirerek rozete tam bir hap/elips şekli verir.
+          self-start: Rozetin tüm satırı kaplamasını engeller; sadece kendi yazısı kadar yer kaplamasını sağlar.
+          order-first: (Dersteki kritik özellik) Kod sıralamasında altta olsa bile, bu elemanı flex kutunun en başına (en üstüne) taşır.
+          uppercase: Rozet içindeki tüm harfleri büyük harfe çevirir.
+          tracking-wide: Harflerin arasını biraz açarak küçük yazıların daha rahat okunmasını sağlar.-->
         <div class="px-2.5 py-1 bg-indigo-100 border border-indigo-700 text-[9px] font-extrabold rounded-full self-start order-first uppercase tracking-wide">
             En Popüler Paket(order-first)
         </div>
+
+
+
+      <!--Bu satır, kartın içindeki özellikler listesini (maddeleri) bir arada tutan ve düzenleyen kutudur. Sınıfların tek tek ve en sade haliyle açıklaması şöyledir:
+      
+      text-xs: Bu kutunun içindeki tüm maddelerin yazı boyutunu küçük (extra small - yaklaşık 12 piksel) yapar.
+      text-gray-500: Yazı rengini orta tonda, soluk bir gri yapar (maddelerin arka planda kalması için).
+      space-y-2: (Çok kullanışlı özellik) İçindeki alt elemanların (paragrafların veya maddelerin) arasına otomatik olarak dikey boşluk ekler; böylece maddeler birbirine yapışmaz.
+      border: Kutunun dört etrafına ince bir çizgi çeker. (Küçük not: Sadece üst çizgi isteniyorsa border-t kullanılır).
+      border-gray-100: Bu çizginin rengini neredeyse fark edilmeyecek kadar açık, çok silik bir gri yapar.
+      pt-4: Çizginin hemen altındaki yazıların sıkışık durmaması için kutunun üst kısmından içeriye doğru bir boşluk (padding-top) bırakır.-->
       <div class="text-xs text-gray-500 space-y-2 border border-gray-100 pt-4 ">
         <p>1 Sınırsız Proje</p>
         <p>25 tane kişisel proje</p>
         <p>Grup Çalışması</p>
       </div>
-      <button class="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-semibold transition-colors mt-2">Satın Al</button>
-      </div>
 
       
+
+    <!--w-full: Butonun genişliğini kartın içi kadar yapar, yani butonu tam genişlikte uzatır.
+        py-2: Butonun üstünden ve altından içeriye doğru boşluk (padding-y ekseni) vererek butonu dikeyde dolgunlaştırır.
+        bg-indigo-600: Butonun arka plan rengini canlı bir mor/indigo tonu yapar.
+        hover:bg-indigo-700: Fareyle butonun üzerine gelindiğinde (hover durumunda) arka plan rengini otomatik olarak bir ton koyulaştırır.
+        text-white: Butonun içindeki "Satın Al" yazısını beyaz yapar.
+        rounded-lg: Butonun köşelerini hafifçe yuvarlatarak modern bir görünüm verir.
+        text-xs: Buton yazısının boyutunu küçük (extra small) yapar.
+        font-semibold: Yazıyı normalden biraz daha kalın (yarı kalın) yaparak belirginleştirir.
+        transition-colors: Fareyle üzerine gelindiğindeki renk değişiminin (hover efektinin) aniden değil, yumuşak bir geçiş animasyonuyla olmasını sağlar.
+        mt-2: Butonun üstündeki özellikler listesine yapışmaması için üst taraftan dış boşluk (margin-top) bırakır.-->
+      <button class="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-semibold transition-colors mt-2">Satın Al</button>
+      </div>      
     </div>
   </body>
 </html>
