@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>.map() (Her Elemanı Değiştirmek/Dönüştürmek)</h1>
+        <p>Dizideki tüm elemanları tek tek gezer, onlara bir işlem uygular ve
+         işlemden geçen yeni elemanlarla aynı uzunlukta yeni bir dizi oluşturur.
+         Örnek;</p><br><br>
+
+         <h2>.find() (Sadece Tek Bir Eleman Aramak)</h2>
+         <p>Dizide verilen şarta uyan İLK elemanı bulur ve doğrudan o elemanın kendisini döner. İşine yarayanı bulduğu an aramayı durdurur. Eğer bulamazsa undefined döner.</p>
+    </div><br><br>
+
+    <h2>.reduce() (Tüm Diziyi Tek Bir Sonuca İndirgemek)</h2>
+    <p>Dizideki tüm elemanları birleştirerek (toplayarak, çarpararak veya harmanlayarak) tek bir çıktı (bir sayı, bir string veya tek bir obje) üretir. İki parametre alır: Birincisi biriktirici (accumulator), ikincisi ise o anki eleman.</p><br><br>
+
+
+    <h2>.filter()</h2>
+    <p>filter bir süzgeç gibidir. Dizi içerisindeki elemanları tek tek süzgece koyar; yazdığın şarta true (evet) diyenler süzgecin üstünde kalır (yeni diziye seçilir), false (hayır) diyenler elenir.</p><br><br>
+
+    <h2>.some() (En Az Bir Tane Var mı?)</h2>
+    <p>Dizideki elemanlardan en az bir tanesi senin verdiğin şarta uyuyorsa sonucu true döner. Eğer hiçbir eleman şarta uymazsa false döner. (Adı üstünde: some / bazıları).</p><br><br>
+
+    <h2>.every() (Herkes Şarta Uyuyor mu?)</h2>
+    <p>Dizideki tüm elemanların senin verdiğin şarta eksiksiz uyması gerekir. Eğer tek bir eleman bile şarta uymazsa sonuç doğrudan false döner. (Adı üstünde: every / herkes).</p><br><br>
+
+    <h2>some ve every Arasındaki Fark Nedir?</h2>
+    <p>some iyimserdir: 100 elemandan sadece 1 tanesi bile şarta uysa true der.</p>
+    <p>every titizdir: 100 elemandan 99'u şarta uysa ama 1 tanesi uymasa anında false der.</p><br><br>
+
+    <h2>.push() (Dizinin Sonuna Eleman Ekleme)</h2>
+    <p>Mevcut bir dizinin en sonuna yeni bir veya birden fazla eleman eklemek için kullanılır. Diğerlerinin aksine bu metot orijinal diziyi doğrudan değiştirir.</p><br><br>
+
+    <h2>.includes() (Metnin İçinde Var mı?)</h2>
+    <p>Bir metnin içinde, aradığın bir kelimenin veya harf diziliminin geçip geçmediğini kontrol eder. Varsa true, yoksa false döner.</p>
+    <p>⚠️ Çok Önemli Not: Bu metot büyük/küçük harfe duyarlıdır. Yani "Elma" kelimesinin içinde "el" ararsan bulamaz, false döner.</p><br><br>
+
+    <h2>.toLowerCase() (Tüm Harfleri Küçültmek)</h2>
+    <p>Bir metindeki bütün harfleri küçük harfe çevirir. Özellikle kullanıcıdan alınan verileri veritabanındakilerle kıyaslarken harf uyuşmazlığı yaşanmasın diye kullanılır.</p><br><br>
+
+    <h2>.toUpperCase() (Tüm Harfleri Büyütmek)</h2>
+    <p>Bir metindeki bütün harfleri büyük harfe çevirir. Tailwind anlatırken gördüğümüz uppercase sınıfının JavaScript'teki karşılığıdır. Başlıkları vurgulamak veya kod sistemleri (kupon kodları vb.) için çok kullanışlıdır.</p><br><br>
+
+    <h2>.trim() (Gereksiz Boşlukları Temizlemek)</h2>
+    <p>Bir metnin sadece başında ve sonunda yer alan boşlukları (space, tab, enter vb.) temizler. Kelimelerin arasındaki boşluklara ise asla dokunmaz. Özellikle kullanıcılar forma e-posta veya şifre yazarken yanlışlıkla başına/sonuna boşluk koyarsa o hatayı engellemek için kullanılır.</p><br><br>
+
+    <h2>.split() (Metni Bölüp Diziye Çevirmek)</h2>
+    <p>Bir metni, senin belirleyeceğin bir ayırıcı karaktere (virgül, boşluk, çizgi vb.) göre parçalara böler ve bu parçalardan yeni bir dizi (array) oluşturur.</p><br><br>
+
+    <h2>// Virgülleri (",") baz alarak metni parçala diyoruz:</h2>
+    <p>split metodunun tam tersi gibi çalışır. Elindeki bir dizinin elemanlarını, aralarına senin istediğin bir karakteri koyarak tek bir metin (string) haline getirir.</p><br><br>
+
+    <h2>parseFloat() (Metni Ondalıklı Sayıya Çevirmek)</h2>
+    <p>İçinde sayı barındıran bir metni (String), JavaScript'in üzerinde matematiksel işlemler yapabileceği ondalıklı bir sayıya (Float) dönüştürür.</p>
+    <p>💡 parseInt ile farkı: parseInt sadece tam sayıları alırken (örn: 12.5'i 12 yapar), parseFloat virgülden (noktadan) sonraki ondalıklı kısmı da korur.</p><br><br>
+
+    <h2>setInterval() (Belirli Aralıklarla Sürekli Çalıştır)</h2>
+    <p>Belirttiğin bir kod bloğunu veya fonksiyonu, senin ayarlayacağın süre aralığıyla (milisaniye cinsinden) durmaksızın, tekrar tekrar çalıştırır. (1 saniye = 1000 milisaniye).</p><br><br>
+
+    <h2>clearInterval() (Zamanlayıcıyı Durdur)</h2>
+    <p>setInterval ile başlatılan sonsuz döngüyü durdurmak için kullanılır. Çalışabilmesi için durdurmak istediğin setInterval'in kimliğini (ID) parantez içine parametre olarak vermen gerekir.</p>
+
+
+
+
+         <script>
+        //Elimizdeki sayıların karesini alıp yeni bir dizi yapmak  
+        const sayilar = [1, 2, 3, 4]; 
+        const kareleri = sayilar.map(sayi => sayi * sayi);
+        console.log("Sonuç:"+kareleri); 
+
+
+        //Listeden id'si 2 olan kullanıcıyı bulur
+        const kullanicilar = [
+        { id:1, isim: "Ahmet"},
+        { id:2, isim: "Zeynep"},
+        { id:3, isim: "Can"},
+               
+        ];
+
+        const arananKullanici = kullanicilar.find(kullanici => kullanici.id === 2);
+        console.log(arananKullanici);
+
+
+        //Örnek: Bir sepetteki ürünlerin toplam fiyatını hesaplamak
+        const sepet = [
+        { urun: "Kitap", fiyat: 80},
+        { urun: "Defter", fiyat: 40},
+        { urun: "Kalem", fiyat: 20}
+        ];
+
+        // 0: Başlangıç değeridir (toplam başta sıfırdır)
+        // toplam: O ana kadar biriken para
+        // urun: O an eline aldığın ürün
+        const toplamTutar = sepet.reduce((toplam, urun) => toplam + urun.fiyat, 0);
+
+        console.log(toplamTutar);// çıktı:140
+
+        // filter() Örnek: E-Ticaret Sitesinde Ürün Filtreleme
+        //Bir e-ticaret sitesi yapılıyor ve kullanıcının sadece stokta olan ve fiyatı 500 TL'den ucuz olan ürünleri görmesi istiniyor.
+
+        const urunler = [
+        { isim: "Kablosuz Kulaklık", fiyat: 450, stoktaVarMi: true},
+        { isim: "Oyuncu Mouse", fiyat: 800, stoktaVarMi: true},
+        { isim: "Klavye", fiyat: 350, stoktaVarMi: false}, //stokta yok
+        { isim: "USB Bellek", fiyat: 150, stoktaVarMi:true},
+        ];
+
+        // Şartımız: Fiyatı 500'den küçük olacak VE stokta var mı değeri true olacak
+        const alinabilirUrunler = urunler.filter(urun => urun.fiyat < 500 && urun.stoktaVarMi === true);
+        console.log(alinabilirUrunler);
+
+        //.some() (En Az Bir Tane Var mı?)
+        //Örnek: Sepette hiç "Fiyatı 1000 TL'den pahalı Lüks Ürün" var mı?
+        const sebet= [
+        { urun: "Tişört", fiyat: 350},
+        { urun: "Akıllı Saat", fiyat: 4500}, //bu şarta uyuyor
+        { urun: "Çorap", fiyat: 50}
+        ];
+
+        // Şart: Fiyatı 1000'den büyük olan en az bir ürün var mı?
+        const luksUrunVarMi = sebet.some(eleman => eleman.fiyat > 1000);
+        console.log(luksUrunVarMi);
+
+        //.every() (Herkes Şarta Uyuyor mu?)
+        // Örnek: Sınıftaki tüm öğrencilerin yaşı 18'den büyük mü? (Yetişkin sınıfı mı?)
+        const ogrenciler = [
+        { isim: "Ali", yas: 20},
+        { isim: "Ayşe", yas:22},
+        { isim: "Mehmet", yas: 17} //şartı bozdu
+        ];
+        const herkesYetiskinMi = ogrenciler.every(ogrenci => ogrenci.yas >=18);
+        console.log(herkesYetiskinMi);//false döner çünkü biri 17
+
+        //.push() (Dizinin Sonuna Eleman Ekleme)
+        // Örnek: Alışveriş listesine yeni bir meyve eklemek
+        const meyveler = ["Elma", "Muz"];
+        meyveler.push("Çilek");
+        console.log(meyveler);
+
+        //.includes() (Metnin İçinde Var mı?)
+        // Örnek: Bir e-posta adresinin geçerli olup olmadığını kabaca kontrol etmek
+        const email = "dilekince04@gmail.com";
+        // E-posta "@" işareti içeriyor mu?
+        const gecerliMi = email.includes("@");
+        console.log(gecerliMi); //çıktı true
+
+        const kontrol2= email.includes("hotmail");
+        console.log(kontrol2); //false
+
+
+        //.toLowerCase() (Tüm Harfleri Küçültmek)
+        // Örnek: Kullanıcının hatalı büyük harflerle yazdığı metni düzeltmek
+        const kullaniciAdi = "DiLeK_123";
+        const temizKullaniciAdi = kullaniciAdi.toLowerCase();        
+        console.log(temizKullaniciAdi);
+
+        //.toUpperCase() (Tüm Harfleri Büyütmek)
+        // Örnek: İndirim kuponunu standart hale getirmek
+        const girilenKupon = "indirim50";
+        const onaylananKupon = girilenKupon.toUpperCase();
+        console.log(onaylananKupon);
+
+        //.trim() (Gereksiz Boşlukları Temizlemek)
+        // Örnek: Kullanıcı girişindeki görünmez boşlukları silmek
+        const kirliPosta = "   ahmet@gmail.com   ";
+        const temizPosta = kirliPosta.trim();
+        console.log(temizPosta);
+
+        //.split() (Metni Bölüp Diziye Çevirmek)
+        // Örnek: Virgülle ayrılmış etiketleri tek tek ayıklamak
+        const etiketlerMetni = "Javascript, react, node, tailwindcss";
+        // Virgülleri (",") baz alarak metni parçala diyoruz
+        const etiketlerDizisi = etiketlerMetni.split(",");
+        console.log(etiketlerDizisi);
+
+        //.join() (Diziyi Birleştirip Metne Çevirmek)
+        // Örnek: Bir dizideki isimleri aralarına tire koyarak yan yana yazdırmak
+        const Yoneticiler = ["Ahmet", "Zeynep", "Can"];
+        // Elemanların arasına " - " koyarak birleştir diyoruz:
+        const metinHali = Yoneticiler.join(" - ");
+        console.log(metinHali);
+
+        //parseFloat() (Metni Ondalıklı Sayıya Çevirmek)
+        // Örnek: API'den veya inputtan gelen string fiyatı sayıya çevirmek
+        const gelenFiyat = "19.99 TL";
+
+        // parseFloat metnin başındaki sayıyı ayıklar, "TL" kısmını çöpe atar
+        const sayiFiyat = parseFloat(gelenFiyat);
+
+        console.log(sayiFiyat); 
+        console.log(sayiFiyat + 5); 
+        // Çıktı: 24.99 (Matematiksel işlem yapabiliyoruz)
+
+        //setInterval() (Belirli Aralıklarla Sürekli Çalıştır)
+        // Örnek: Her saniye ekrana "Selam!" yazdıran bir döngü başlatmak
+        const selamla = setInterval(() => {
+        console.log("Selam!");
+        }, 1000); 
+
+        // Bu kod durdurulmadığı sürece her 1 saniyede bir ekrana "Selam!" yazmaya devam eder.
+
+
+        //clearInterval() (Zamanlayıcıyı Durdur)
+        // Örnek: 5'ten geriye sayan ve 0 olunca duran bir geri sayım sayacı
+        let sayac =5;
+        // 1. Adım: setInterval'i bir değişkene (surecID) atayarak başlatıyoruz
+        const surecID = setInterval(() => {
+            console.log(sayac);
+            sayac--; //her saniye sayıyı 1 azalt
+
+        // 2. Adım: Sayaç 0'ın altına düştüğünde döngüyü bitir diyoruz
+        if (sayac < 0){
+            clearInterval(surecID); //zamanlayıcıyı tamamen durdurur
+            console.log("Süre bitti!");
+        }
+
+        }, 1000);
+
+        /* Çıktı:
+        5  (1. saniye)
+        4  (2. saniye)
+        3  (3. saniye)
+        2  (4. saniye)
+        1  (5. saniye)
+        0  (6. saniye)
+        "Süre bitti!" (Zamanlayıcı durdu, artık konsola bir şey yazmaz)
+        */
+
+
+
+
+
+
+
+
+         </script>
+        
+       
+
+    
+
+
+
+
+
+
+
+    
+</body>
+</html>
