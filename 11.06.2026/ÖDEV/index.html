@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐾 PatiDünyası Gelişmiş Entegre Paneli 🐾 </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col min-h-screen bg-[#fff9f5] text-[#4a4a4a] font-sans">
+    <header class="bg-[#ffaa66] text-white flex justify-between items-center px-6 py-[15px] shadow-[0_4px_10px_rgba(0,0,0,0.05)]   ">
+        <div class="flex items-center gap-3 text-[22px] font-bold">
+            <button class="bg-[#ff8833] border-none text-white text-sm:text-lg px-4 py-2 rounded-[20px] cursor-pointer transition duration-200 hover:bg-[#e66600]" id="sidebarToggle">🐾 Menü</button>
+            <span>PatiDünyası Yönetim Portalı</span>
+        </div>
+        <nav class="relative">
+            <button class="bg-[#ff8833] border-none text-white text-lg px-4 py-2 rounded-[20px] curson pointer transition duration-200 hover:bg-[#e66600] hidden" id="menuToggle">⋮</button>
+            <ul class="flex list-none gap-5 nav-links " id="navLinks">
+                <li><a href="#" class="color-white font-semibold px-3 py-1 rounded-[15px] hover:bg-white/20">Konsol</a></li>
+                <li><a href="#" class="color-white font-semibold px-3 py-1 rounded-[15px] hover:bg-white/20">Sahiplendirme</a></li>
+                <li><a href="#" class="color-white font-semibold px-3 py-1 rounded-[15px] hover:bg-white/20">Destek</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="flex flex-1 relative wrapper">
+        <aside id="sidebar" class="w-[260px] bg-[#ffe6d5] p-6 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] shrink-0 absolute md:relative h-full md:h-auto z-10 [&.closed]:w-0 [&.closed]:p-0 [&.closed]:overflow-hidden">
+            <ul class="list-none flex flex-col gap-3">
+                <li><a href="#pasaportAlani" class="text-[#d45500] no-underline block px-[15px] py-3 rounded-[20px] font-semibold bg-white shadow-[0_2px_4px_rgba(0,0,0,0.02)] transition duration-200 hover:bg-[#ffaa66] hover:text-white hover:translate-x-1">🆔 Pasaport Kontrol</a></li>
+                <li><a href="#barinakAlani" class="text-[#d45500] no-underline block px-[15px] py-3 rounded-[20px] font-semibold bg-white shadow-[0_2px_4px_rgba(0,0,0,0.02)] transition duration-200 hover:bg-[#ffaa66] hover:text-white hover:translate-x-1">🏛️ Barınak Sorgulama</a></li>
+                <li><a href="#mamaAlani" class="text-[#d45500] no-underline block px-[15px] py-3 rounded-[20px] font-semibold bg-white shadow-[0_2px_4px_rgba(0,0,0,0.02)] transition duration-200 hover:bg-[#ffaa66] hover:text-white hover:translate-x-1">🐈 Mama & Ödül Sepeti</a></li>
+                <li><a href="#sesAlani" class="text-[#d45500] no-underline block px-[15px] py-3 rounded-[20px] font-semibold bg-white shadow-[0_2px_4px_rgba(0,0,0,0.02)] transition duration-200 hover:bg-[#ffaa66] hover:text-white hover:translate-x-1">🔊 Pati Ses Simülatörü</a></li>
+            </ul>
+        </aside>
+
+
+        <main class="flex-1 p-[30px] flex flex-col gap-[30px]">
+            <div class="flex flex-wrap gap-[25px] items-start">
+                
+                <div class="bg-white p-[25px] rounded-[24px] flex-1 min-w-[320px] shadow-[0_8px_20px_rgba(255,170,102,0.15)] border-2 border-[#ffe6d5]" id="pasaportAlani">
+                    <h2 class="mb-5 text-[#e66600] text-[19px] border-b-3 border-dashed border-[#ffe6d5] pb-2 flex items-center gap-2 font-bold">🆔 1. Pati Pasaport Doğrulama Sistemi</h2>
+                    <form id="passportForm" onsubmit="event.preventDefault();">
+                        <div class="mb-[15px] flex flex-col gap-1.5">
+                            <label class="font-semibold text-[#666] text-sm">Pati Çip Numarası (Örn: ÇİP99):</label>
+                            <input type="text" id="chipNumber" placeholder="Sistem çip kodunu giriniz..." class="px-[15px] py-3 border-2 border-[#ffe6d5] rounded-[18px] text-sm outline-none transition duration-200 focus:border-[#ffaa66]">
+                        </div>
+                        <div class="mb-[15px] flex flex-col gap-1.5">
+                            <label class="font-semibold text-[#666] text-sm">Sahip Güvenlik Şifresi (Örn: pati2026):</label>
+                            <input type="password" id="ownerKey" placeholder="Güvenlik parolasını giriniz..." class="px-[15px] py-3 border-2 border-[#ffe6d5] rounded-[18px] text-sm outline-none transition duration-200 focus:border-[#ffaa66]">
+                        </div>
+                        <button class="bg-[#ff8833] text-white border-none px-5 py-3 rounded-[20px] cursor-pointer font-bold transition duration-200 hover:bg-[#e66600] hover:-translate-y-0.5" id="btnSorgula">Pasaportu Doğrula</button>
+                    </form>
+                    <div class="bg-[#fff9db] border-l-[5px] border-[#ffd166] p-[15px] mt-[15px] rounded-[16px] text-sm leading-relaxed" id="passportOutput">Durum: Sorgulama yapılması bekleniyor...</div>
+                </div>
+
+                
+
+                <div class="bg-white p-[25px] rounded-[24px] flex-1 min-w-[320px] shadow-[0_8px_20px_rgba(255,170,102,0.15)] border-2 border-[#ffe6d5]" id="barinakAlani">
+                    <h2 class="mb-5 text-[#e66600] text-[19px] border-b-3 border-dashed border-[#ffe6d5] pb-2 flex items-center gap-2 font-bold">🏛️ 2. Barınak Canlı Veri Akışı (Fetch GET)</h2>
+                    <div class="mb-[15px] flex flex-col gap-1.5">
+                        <label class="font-semibold text-[#666] text-sm">Şehre veya Türüne Göre Ara:</label>
+                        <input type="text" id="shelterSearch" placeholder="Örn: Van veya Kedi yazın..." class="px-[15px] py-3 border-2 border-[#ffe6d5] rounded-[18px] text-sm outline-none transition duration-200 focus:border-[#ffaa66]">
+                    </div>
+                    <button class="bg-[#7dd3fc] text-white border-none px-5 py-3 rounded-[20px] cursor-pointer font-bold transition duration-200 hover:bg-[#38bdf8] hover:-translate-y-0.5" id="btnFetchShelter">Barınak Verilerini Çek</button>
+                    <div class="bg-[#f0f9ff] border-l-[5px] border-[#0284c7] text-[#0369a1] p-[15px] mt-[15px] rounded-[16px] text-sm leading-relaxed" id="shelterOutput">
+                        Veriler uzak barınak sunucusundan çekilmeyi bekliyor...
+                    </div>
+                </div>
+
+                <div class="bg-white p-[25px] rounded-[24px] flex-1 min-w-[360px] shadow-[0_8px_20px_rgba(255,170,102,0.15)] border-2 border-[#ffe6d5]" id="mamaAlani">
+                    <h2 class="mb-5 text-[#e66600] text-[19px] border-b-3 border-dashed border-[#ffe6d5] pb-2 flex items-center gap-2 font-bold">🐈 3. Pati Lojistik & Sipariş Yönetimi</h2>
+                    <h3 class="text-[#ff8833] my-[15px] text-base font-bold">Stoktaki Mama ve Ürünler</h3>
+                    <div class="mb-[15px] flex flex-row gap-2.5">
+                        <input type="text" id="productSearch" placeholder="Ürün adı filtrele..." class="flex-1 px-[15px] py-3 border-2 border-[#ffe6d5] rounded-[18px] text-sm outline-none transition duration-200 focus:border-[#ffaa66]">
+                        <button class="px-3 py-1.5 text-xs rounded-[12px] bg-[#ffd166] text-[#4a4a4a] border-none cursor-pointer font-bold transition duration-200 hover:-translate-y-0.5" id="btnFilterCatalog">Filtrele</button>
+                    </div>
+
+                    <div id="catalogContainer"></div>
+
+                    <h3 class="text-[#ff8833] mb-2.5 mt-5 border-t-2 border-dashed border-[#ffe6d5] pt-[15px] text-base font-bold">Aktif Sevkiyat Sepeti</h3>
+                    <ul id="cartList" class="ml-5 font-medium text-[#555] list-disc"></ul>
+                    
+                    <div class="mt-[15px] font-bold text-[#e66600]" id="totalPriceText">
+                        Toplam Sipariş Bedeli: 0 TL
+                    </div>
+                    <button class="bg-[#10b981] text-white border-none px-5 py-3 rounded-[20px] cursor-pointer font-bold transition duration-200 hover:bg-[#059669] hover:-translate-y-0.5 mt-2.5 w-full" id="btnCompleteOrder">Siparişi Paketle ve Gönder</button>
+                    <div id="orderStatus" class="mt-2.5 text-[13px] italic text-custom-blue text-[#64748b]"></div>
+                </div>
+
+                <div class="bg-white p-[25px] rounded-[24px] flex-1 min-w-[320px] shadow-[0_8px_20px_rgba(255,170,102,0.15)] border-2 border-[#ffe6d5]" id="sesAlani">
+                    <h2 class="mb-5 text-[#e66600] text-[19px] border-b-3 border-dashed border-[#ffe6d5] pb-2 flex items-center gap-2 font-bold">🔊 4. Nesne İçi 'this' Bağlamı Simülatörü</h2>
+                    <p class="text-[13px] mb-3 text-[#64748b]">Klasik fonksiyonlarda gecikmeli (setTimeout) çağrılar `this` bağlamını global nesneye kaçırır. Arrow ise korur!</p>
+                    <div class="flex gap-2.5 mb-[15px]">
+                        <button class="bg-[#7dd3fc] text-white border-none px-5 py-3 rounded-[20px] cursor-pointer font-bold transition duration-200 hover:bg-[#38bdf8] hover:-translate-y-0.5" id="btnDogNormal">Klasik Fonksiyon</button>
+                        <button class="bg-[#fecdd3] text-[#9f1239] border-none px-5 py-3 rounded-[20px] cursor-pointer font-bold transition duration-200 hover:bg-[#fda4af] hover:-translate-y-0.5" id="btnDogArrow">Arrow Fonksiyon</button>
+                    </div>
+                    <div class="bg-[#fff9db] border-l-[5px] border-[#ffd166] p-[15px] mt-[15px] rounded-[16px] text-sm leading-relaxed" id="voiceOutput">Simülatör Hazır...</div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Arayüz Etkileşimleri - Toggle Menü ve Sidebar İşlevleri
+        const sidebar =document.getElementById('sidebar');
+        const sidebarToggle =document.getElementById('sidebarToggle');
+        const menuToggle =document.getElementById('menuToggle');
+        const navLinks =document.getElementById('navLinks');
+
+        sidebarToggle.addEventListener('click',()=>      sidebar.classList.toggle("closed")); //Yan menü açma-kapama işlemi tetiklendi.Menü butonuna tıkladığımızda aside section kapanacak
+        menuToggle.addEventListener('click',()=>      navLinks.classList.toggle("active"));//Mobil üst menü Açma/Kapama
+
+        //Responsive tasarım için manipülasyonu
+        const handleResponsive = () => {
+            if (window.innerWidth <= 768 ) {
+                menuToggle.classList.remove('hidden');
+                navLinks.classList.add('hidden', 'flex-col', 'absolute', 'top-[65px]', 'right-[25px]','bg-[#ffaa66]', 'w-[200px]', 'p-[15px]', 'rounded-[20px]', 'z-50');
+            } else { 
+                menuToggle.classList.add('hidden');
+                navLinks.classList.remove('hidden', 'flex-col', 'absolute', 'top-[65px]', 'right-[25px]', 'bg-[#ffaa66]', 'w-[200px]', 'p-[15px]', 'rounded-[20px]', 'z-50', 'active');
+            }
+        };
+        
+        //Pati Pasaport Doğrulama Sisteminin Manipülasyonu
+        document.getElementById('passportForm').addEventListener('click',()=>{
+            const chip=document.getElementById('chipNumber').value;
+            const key=document.getElementById('ownerKey').value;
+            const out=document.getElementById('passportOutput');
+
+            if(chip === "ÇİP99" && key === "pati2026"){
+                const evcilHayvanVerisi={
+                    evcilIsim: "Köpük",
+                    asiDurumu: "Tam (Kuduz, Karma)",
+                    sonKontrol: "05.06.2026",
+                    raporYaz: function(){
+                        return `✅ Pasaport Onaylandı!<br><strong>Pati Adı:</strong> ${this.evcilIsim}<br><strong>Irk/Tür:</strong> ${this.tur}<br><strong>Aşı Kartı:</strong> ${this.asiDurumu}<br><strong>Son Muayene:</strong> ${this.sonKontrol}`;
+                    }
+                };
+                out.className = "bg-[#f0fdf4] border-l-[5px] border-[#34d399] text-[#065f46] p-[15px] mt-[15px] rounded-[16px] text-sm leading-relaxed";
+                out.innerHTML = evcilHayvanVerisi.raporYaz();
+            }else{
+                out.className = "bg-[#fef2f2] border-l-[5px] border-[#f87171] text-[#991b1b] p-[15px] mt-[15px] rounded-[16px] text-sm leading-relaxed";
+                out.innerHTML = "❌ Eşleşme Başarısız! Çip numarası bulunamadı veya sahip şifresi hatalı.";
+            }
+        });
+
+        //Barınak Canlı Veri Akışı (Fetch GET) Manipülasyoru
+        const uzakBarinakVerileri = [
+            { id: 101, hayvan: "Tekir Kedi", yas: 2, barinak: "Van Barinaqi" },
+            { id: 102, hayvan: "Golden Köpek", yas: 4, barinak: "Ankara Barinaqi" },
+            { id: 103, hayvan: "Ankara Kedisi", yas: 1, barinak: "Van Barinaqi" },
+            { id: 104, hayvan: "Sivas Kangali", yas: 3, barinak: "Sivas Barinaqi" }
+        ];
+
+        const barinakListesiYazdir = (data) => {
+            const out = document.getElementById('shelterOutput');
+            if(data.length === 0) {
+                out.innerHTML = "Aranan kriterlere uygun barınak kaydı bulunamadı. 🐾";
+                return;
+            }
+            out.innerHTML = data.map(p => 
+                `<div>📍 <strong>${p.hayvan}</strong> (${p.yas} yaşında) - Kayıtlı Yer: <em>${p.barinak}</em></div>`
+            ).join('');
+        };
+
+        document.getElementById('btnFetchShelter').addEventListener('click', () => barinakListesiYazdir(uzakBarinakVerileri));
+
+        document.getElementById('shelterSearch').addEventListener('input', (e) => {
+            const anahtar = e.target.value.toLowerCase();
+            const filtrelenmisBarinak = uzakBarinakVerileri.filter(item => 
+                item.hayvan.toLowerCase().includes(anahtar) || item.barinak.toLowerCase().includes(anahtar)
+            );
+            barinakListesiYazdir(filtrelenmisBarinak);
+        });
+
+        //Pati Lojistik & Sipariş Yönetiminin Manipülasyonu
+         let patiKatalogu = [
+            { id: 501, ad: "Somonlu Premium Kedi Mamasi 2kg", tur: "Besin", fiyat: 450, stok: 4 },
+            { id: 502, ad: "Kuzu Etli Yetişkin Köpek Mamasi 5kg", tur: "Besin", fiyat: 850, stok: 2 },
+            { id: 503, ad: "Organik Kedi Nanesi Spreyi", tur: "Eğlence", fiyat: 120, stok: 0 },
+            { id: 504, ad: "Ödül Çubuğu 10lu Paket", tur: "Besin", fiyat: 95, stok: 12 },
+            { id: 505, ad: "Pati Tüy Bakım Şampuani", tur: "Sağlık", fiyat: 180, stok: 6 }
+        ];
+
+        let patiSepeti = [];
+        let sepetMaliyeti = 0;
+
+        const katalogOlustur = (liste) => {
+            const box = document.getElementById('catalogContainer');
+            box.innerHTML = liste.map(item => {
+                const stokBilgisi = item.stok > 0 ? `Kalan: ${item.stok} adet` : "Mamamız bitti! 😿";
+                const pasifMi = item.stok === 0 ? "text-[#94a3b8] line-through" : "";
+                
+                return `
+                    <div class="bg-[#fdfefe] border border-[#f1f5f9] p-3 rounded-[16px] mb-2.5 flex justify-between items-center">
+                        <div class="${pasifMi}">
+                            <strong>${item.ad}</strong> <br>
+                            <span class="text-xs text-[#777]">Tür: ${item.tur} | ${item.fiyat} TL | ${stokBilgisi}</span>
+                        </div>
+                        <button class="px-3 py-1 text-xs rounded-[12px] bg-[#ffd166] text-[#4a4a4a] border-none cursor-pointer font-bold transition duration-200 hover:-translate-y-0.5 disabled:bg-[#ddd] disabled:cursor-not-allowed" onclick="patiSepetineEkle(${item.id})" ${item.stok === 0 ? 'disabled' : ''}>Ekle</button>
+                    </div>
+                `;
+            }).join('');
+        };
+
+        katalogOlustur(patiKatalogu);
+
+        document.getElementById('btnFilterCatalog').addEventListener('click', () => {
+            const kelime = document.getElementById('productSearch').value.toLowerCase();
+            const filtreliler = patiKatalogu.filter(p => p.ad.toLowerCase().includes(kelime));
+            katalogOlustur(filtreliler);
+        });
+
+        window.patiSepetineEkle = (id) => {
+            const hedefUrun = patiKatalogu.find(p => p.id === id);
+            
+            if(hedefUrun && hedefUrun.stok > 0) {
+                hedefUrun.stok--; 
+                patiSepeti.push(hedefUrun); 
+                sepetMaliyeti += hedefUrun.fiyat;
+                
+                sepetArayuzunuGuncelle();
+                katalogOlustur(patiKatalogu); 
+                
+                document.getElementById('orderStatus').innerText = `Son İşlem: ${hedefUrun.ad} sevk sepetine eklendi.`;
+            }
+        };
+
+        const sepetArayuzunuGuncelle = () => {
+            const listEl = document.getElementById('cartList');
+            listEl.innerHTML = patiSepeti.map(s => `<li>${s.ad.toLowerCase()} - ${s.fiyat} TL</li>`).join('');
+            document.getElementById('totalPriceText').innerText = `Toplam Sipariş Bedeli: ${sepetMaliyeti} TL`;
+        };
+
+        document.getElementById('btnCompleteOrder').addEventListener('click', () => {
+            if(patiSepeti.length === 0) {
+                alert("Sevkiyat sepetiniz boş, ürün eklemediniz! 🐾");
+                return;
+            }
+            alert(`Sipariş Hazırlandı! Toplam ${sepetMaliyeti} TL değerindeki lojistik çıkış onaylandı.`);
+            patiSepeti = [];
+            sepetMaliyeti = 0;
+            sepetArayuzunuGuncelle();
+            document.getElementById('orderStatus').innerText = "Sipariş depodan çıkış yaptı, sepet sıfırlandı.";
+        });
+
+        //Nesne İçi 'this' Bağlamı Simülatörünün Manipülasyonu
+         function KlasikFonksiyonSesi() {
+            this.hayvanIsmi = "Karabaş";
+            setTimeout(function() {
+                document.getElementById('voiceOutput').innerHTML = `🐾 <strong>Klasik Sonuç:</strong> <br> ${this.hayvanIsmi} havlamaya çalıştı ama sesi çıkmadı! (Sonuç: ${this.hayvanIsmi})`;
+            }, 200);
+        }
+
+        function ArrowFonksiyonSesi() {
+            this.hayvanIsmi = "Pamuk";
+            setTimeout(() => {
+                document.getElementById('voiceOutput').innerHTML = `🐾 <strong>Arrow Sonuç:</strong> <br> ${this.hayvanIsmi} başarıyla ses çıkardı: Hav! Hav! 🐶`;
+            }, 200);
+        }
+
+        document.getElementById('btnDogNormal').addEventListener('click', () => new KlasikFonksiyonSesi());
+        document.getElementById('btnDogArrow').addEventListener('click', () => new ArrowFonksiyonSesi());
+        
+        
+
+    </script>
+
+    
+</body>
+</html>
