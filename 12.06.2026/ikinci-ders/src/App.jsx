@@ -10,6 +10,8 @@ import Demo6ListRendering from './component/Demo6ListRendering'
 import Demo7EventHandling from './component/Demo7EventHandling'
 import Demo8ReadOnlyProps from './component/Demo8ReadOnlyProps'
 import Demo9DefaultProps from './component/Demo9DefaultProps'
+import Demo11ETicaretSepeti from './component/Demo11ETicaretSepetPanel'
+
 
 function App() {
   const [selectedDemo, setSelectedDemo] = useState(1);
@@ -17,7 +19,6 @@ function App() {
     switch(selectedDemo){
       case 1:
         return<Demo1JSXBasic/>;
-
       case 2:
         return<Demo2Component/>;
       case 3:
@@ -34,7 +35,8 @@ function App() {
         return<Demo8ReadOnlyProps/>;
       case 9:
         return<Demo9DefaultProps/>;
-
+      case 11:
+        return<Demo11ETicaretSepeti/>;
       default:
         return<Demo1JSXBasic/>;
 
@@ -51,6 +53,7 @@ function App() {
     {id:7,ad:"Demo 7: Onay Yönetimi"},
     {id:8,ad:"Demo 8: Salt Okunur"},
     {id:9,ad:"Demo 9: Varsayılan Props"},
+    {id:11,ad:"Demo 11: ETicaretSepeti"},
   ]
   return (
     <>
@@ -68,24 +71,20 @@ function App() {
               className={selectedDemo===demo.id?"bg-blue-500 text-white": "bg-gray-100"}>
                 {demo.ad}
               </button>
-            ))}
-
+             ))}
+            </div>
           </div>
-        </div>
         <div className='col-span-3'>
           <div className='p-4'>
             {renderDemo()}
           </div>
         </div>
+        </div>
       </div>
     </div>
-  </div>
-    
-    </>
-  
+  </>
 
-  
-   )
+  )
 }
 export default App;
         
