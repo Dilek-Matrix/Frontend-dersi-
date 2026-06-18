@@ -3,36 +3,39 @@ import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import ProductGrid from "./components/ProductGrid";
 import Footer from "./components/Footer";
+import { useState } from "react";
 import AddProductForm from "./components/AddProductForm";
 import { MOCK_PRODUCTS, MOCK_CATEGORIES } from "./productsMock";
-import { useState } from "react";
+import AboutUs from "./components/AboutUs";
+import HelpCenter from "./components/HelpCenter";
+import OrderTracking from "./components/OrderTracking";
+import ProductReturns from "./components/ProductReturns";
+import CategoriesList from "./components/CategoriesList";
+import ProductDetail from "./components/ProductDetail";
+import CartDrawer from "./components/CartDrawer";
+import LoginModal from "./components/LoginModal";
+
 function App() {
   const [products, setProducts] = useState(MOCK_PRODUCTS);
   const [selectedCategory, setSelectedCategory] = useState("Tümü");
   const [view, setView] = useState("home");
   const [searchQuery, setSearchQuery] = useState("");
   const [searchInput, setSearchInput] = useState("");
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
 
-  const handleAddProduct=(data)=>{
-    const newProduct={
-      id:Date.now(),
-      title:data.title,
-      price:Number(data.price),
-      category:data.category,
-      rating:5.0,
-      ratingCount:1,
-      image:data.image,
-      description:data.description,
-
-    }
-    setProducts([newProduct,...products]);
-  }
-
-
-
-
-
-
+  const handleAddProduct = (data) => {
+    const newProduct = {
+      id: Date.now(),
+      title: data.title,
+      price: Number(data.price),
+      category: data.category,
+      rating: 5.0,
+      ratingCount: 1,
+      image: data.image,
+      description: data.description,
+    };
+    setProducts([newProduct, ...products]);
+  };
 
   const filteredProducts = products.filter((p) => {
     const matchesCategory =
@@ -76,7 +79,8 @@ function App() {
           <div className="content-area">
             <div className="content-header">
               <h1 className="page-title">
-                {selectedCategory} {searchQuery && `> "${searchQuery}"`} Ürünler
+                {selectedCategory} {searchQuery && `-> "${searchQuery}"`}{" "}
+                Ürünler
               </h1>
               <span className="text-sm">
                 Toplam {filteredProducts.length} Ürün
@@ -95,10 +99,20 @@ function App() {
           </div>
         </main>
       ) : (
-        <AddProductForm categories={MOCK_CATEGORIES}
-        setView={setView} onAddProduct={handleAddProduct}
+        <AddProductForm
+          categories={MOCK_CATEGORIES}
+          setView={setView}
+          onAddProduct={handleAddProduct}
         />
       )}
+      <ProductDetail />
+      <CategoriesList categories={MOCK_CATEGORIES} products={products} />
+      <AboutUs />
+      <HelpCenter />
+      <OrderTracking />
+      <ProductReturns />
+      <CartDrawer />
+      <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
       <Footer />
     </>
   );

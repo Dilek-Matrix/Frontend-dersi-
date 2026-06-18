@@ -27,9 +27,8 @@ export default function Header({
               onChange={(e)=>setSearchInput(e.target.value)}
               value={searchInput}
             />
-            <button className="search-button" type="submit">Ara</button>
+            <button type="submit" className="search-button">Ara</button>
           </form>
-         
           <div className="header-actions">
             <div className="action-item" onClick={()=>setView('addProduct')}>
               <span>Yeni Ürün</span>
