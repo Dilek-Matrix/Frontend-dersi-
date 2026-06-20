@@ -5,6 +5,7 @@ import Object from './components/Object';
 import ArrayState from './components/ArrayState';
 import MultipleInputs from './components/MultipleInputs';
 import DynamicFormFields from './components/DynamicFormFields';
+import Demo11Project from './components/Demo11Project';
 
 
 function App() {
@@ -24,8 +25,9 @@ function App() {
         return <MultipleInputs/>;
       case 6:
         return <DynamicFormFields/>;
-
-      default:
+      case 7:
+        return <Demo11Project/>;
+      default:      
         return <Counter/>;
     }
   }
@@ -37,6 +39,7 @@ function App() {
     {id:4,ad:"Demo 4: Temel ArrayState"},
     {id:5,ad:"Demo 5: Temel MultipleInputs"},
     {id:6,ad:"Demo 6: Temel DynamicFormFields"},
+    {id:7,ad:"Demo 7: Temel Demo11Project"},
   ];
 
 
