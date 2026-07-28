@@ -5,6 +5,8 @@ export default function CartDrawer({ isOpen, onClose, setView }) {
 
   if (!isOpen) return null
 
+  const cartItems = cart || []
+
   return (
     <div>
       <div className="drawer-overlay" onClick={onClose}></div>
@@ -15,12 +17,12 @@ export default function CartDrawer({ isOpen, onClose, setView }) {
         </div>
 
         <div className="drawer-body">
-          {cart.length === 0 ? (
+          {cartItems.length === 0 ? (
             <div className="text-center text-gray-500">
               Sepetiniz boş.
             </div>
           ) : (
-            cart.map((item) => (
+            cartItems.map((item) => (
               <div key={item.id} className="cart-item">
                 <div className="cart-item-img-box">
                   <img
@@ -32,14 +34,14 @@ export default function CartDrawer({ isOpen, onClose, setView }) {
                 <div className="cart-item-info">
                   <h4 className="cart-item-title">{item.title}</h4>
                   <span className="cart-item-price">
-                    {item.price.toLocaleString('tr-TR')} TL
+                    {item.price?.toLocaleString('tr-TR')} TL
                   </span>
                   <div className="cart-item-qty">
-                    <button className="qty-btn" onClick={() => updateQuantity(item.id, -1)}>-</button>
+                    <button className="qty-btn" onClick={() => updateQuantity && updateQuantity(item.id, -1)}>-</button>
                     <span className="qty-val">{item.quantity}</span>
-                    <button className="qty-btn" onClick={() => updateQuantity(item.id, 1)}>+</button>
+                    <button className="qty-btn" onClick={() => updateQuantity && updateQuantity(item.id, 1)}>+</button>
                   </div>
-                  <span className="cart-item-remove" onClick={() => removeFromCart(item.id)}>Kaldır</span>
+                  <span className="cart-item-remove" onClick={() => removeFromCart && removeFromCart(item.id)}>Kaldır</span>
                 </div>
               </div>
             ))
@@ -49,7 +51,7 @@ export default function CartDrawer({ isOpen, onClose, setView }) {
         <div className="drawer-footer">
           <div className="cart-summary-row">
             <span>Ara Toplam</span>
-            <span>{cartTotal.toLocaleString('tr-TR')} TL</span>
+            <span>{(cartTotal || 0).toLocaleString('tr-TR')} TL</span>
           </div>
           <div className="cart-summary-row">
             <span>Kargo</span>
@@ -57,9 +59,9 @@ export default function CartDrawer({ isOpen, onClose, setView }) {
           </div>
           <div className="cart-summary-row">
             <span className="font-bold">Toplam</span>
-            <span className="cart-summary-total">{cartTotal.toLocaleString('tr-TR')} TL</span>
+            <span className="cart-summary-total">{(cartTotal || 0).toLocaleString('tr-TR')} TL</span>
           </div>
-          <button className="cart-checkout-btn" onClick={() => { setView('checkout'); onClose(); }}>Alışverişi Tamamla</button>
+          <button className="cart-checkout-btn" onClick={() => { setView && setView('checkout'); onClose && onClose(); }}>Alışverişi Tamamla</button>
         </div>
       </div>
     </div>

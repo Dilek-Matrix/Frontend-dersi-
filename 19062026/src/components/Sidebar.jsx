@@ -1,13 +1,13 @@
-export default function Sidebar({ categories, setView,selectedCategory, setSelectedCategory }) {
+export default function Sidebar({ categories, setView, selectedCategory, setSelectedCategory }) {
   return (
     <aside className="sidebar">
-      <h2 className="sidebar-title cursor-pointer" onClick={() => setView('about')}>Kategoriler</h2>
+      <h2 className="sidebar-title cursor-pointer" onClick={() => setView && setView('about')}>Kategoriler</h2>
       <div className="sidebar-list">
-        {categories.map((cat) => (
+        {categories?.map((cat) => (
           <div
             key={cat}
             className={`sidebar-item ${selectedCategory === cat ? 'sidebar-item-active' : ''}`}
-            onClick={() => setSelectedCategory(cat)}
+            onClick={() => setSelectedCategory && setSelectedCategory(cat)}
           >
             <span>{cat}</span>
             <span className="text-gray-400">&gt;</span>
