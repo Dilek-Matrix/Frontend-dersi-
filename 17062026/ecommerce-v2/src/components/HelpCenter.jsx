@@ -12,7 +12,7 @@ export default function HelpCenter() {
     <main className="help-container">
       <div className="faq-section">
         <h2 className="form-title">Sıkça Sorulan Sorular</h2>
-        {FAQ_DATA.map((faq, index) => (
+        {FAQ_DATA?.map((faq, index) => (
           <div key={index} className="faq-card" onClick={() => handleToggle(index)}>
             <div className="faq-question">
               <span>{faq.q}</span>

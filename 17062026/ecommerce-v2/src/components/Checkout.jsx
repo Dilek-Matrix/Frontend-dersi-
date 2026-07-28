@@ -56,7 +56,7 @@ export default function Checkout({ setView }) {
 
   const handleDeleteAddress = (id, e) => {
     e.stopPropagation()
-    const updated = addresses.filter((a) => a.id !== id)
+    const updated = (addresses || []).filter((a) => a.id !== id)
     setAddresses(updated)
     if (selectedAddressId === id) {
       if (updated.length > 0) {
@@ -69,7 +69,7 @@ export default function Checkout({ setView }) {
 
   const handleAddressSubmit = (data) => {
     if (editingAddress) {
-      const updated = addresses.map((a) =>
+      const updated = (addresses || []).map((a) =>
         a.id === editingAddress.id ? { ...a, ...data } : a
       )
       setAddresses(updated)
@@ -149,7 +149,7 @@ export default function Checkout({ setView }) {
         <div className="tracking-card">
           <h2 className="form-title">Teslimat Adresi</h2>
           <div className="address-grid">
-            {addresses.map((addr) => (
+            {addresses?.map((addr) => (
               <div
                 key={addr.id}
                 className={`address-card ${selectedAddressId === addr.id ? 'address-card-active' : ''}`}
@@ -292,7 +292,7 @@ export default function Checkout({ setView }) {
       <div className="checkout-sidebar">
         <h3 className="value-title">Sipariş Özeti</h3>
 
-        {cart.map((item) => (
+        {cart?.map((item) => (
           <div key={item.id} className="checkout-product-row">
             <img
               src={item.image}

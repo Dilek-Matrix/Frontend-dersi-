@@ -47,7 +47,7 @@ export default function AddProductForm({ categories, onAddProduct, setView }) {
               })}
             >
               <option value="">Seçiniz</option>
-              {categories.filter(c => c !== 'Tümü').map(cat => (
+              {(categories || []).filter(c => c !== 'Tümü').map(cat => (
                 <option key={cat} value={cat}>{cat}</option>
               ))}
             </select>

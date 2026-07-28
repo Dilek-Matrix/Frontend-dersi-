@@ -7,23 +7,24 @@ export function CartProvider({ children }) {
 
   const addToCart = (product) => {
     setCart((prevCart) => {
-      const exists = prevCart.find((item) => item.id === product.id)
+      const currentCart = prevCart || []
+      const exists = currentCart.find((item) => item.id === product.id)
       if (exists) {
-        return prevCart.map((item) =>
+        return currentCart.map((item) =>
           item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
         )
       }
-      return [...prevCart, { ...product, quantity: 1 }]
+      return [...currentCart, { ...product, quantity: 1 }]
     })
   }
 
   const removeFromCart = (id) => {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== id))
+    setCart((prevCart) => (prevCart || []).filter((item) => item.id !== id))
   }
 
   const updateQuantity = (id, delta) => {
     setCart((prevCart) =>
-      prevCart
+      (prevCart || [])
         .map((item) => {
           if (item.id === id) {
             return { ...item, quantity: item.quantity + delta }
@@ -38,8 +39,8 @@ export function CartProvider({ children }) {
     setCart([])
   }
 
-  const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0)
-  const cartTotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
+  const cartCount = (cart || []).reduce((sum, item) => sum + (item.quantity || 0), 0)
+  const cartTotal = (cart || []).reduce((sum, item) => sum + (item.price || 0) * (item.quantity || 0), 0)
 
   return (
     <CartContext.Provider
