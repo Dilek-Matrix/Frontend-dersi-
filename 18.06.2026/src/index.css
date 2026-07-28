@@ -1,0 +1,94 @@
+:root {
+  --primary-gradient: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+  --accent-gradient: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+  --success-gradient: linear-gradient(135deg, #198754 0%, #157347 100%);
+  --dark-glass: rgba(33, 37, 41, 0.95);
+  --light-glass: rgba(255, 255, 255, 0.9);
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --hover-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: #f8f9fa;
+  color: #212529;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+/* Page Transitions */
+.page-fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover effects */
+.btn-hover-scale {
+  transition: var(--transition-smooth);
+}
+.btn-hover-scale:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.clickable-row {
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.clickable-row:hover {
+  background-color: rgba(13, 110, 253, 0.05);
+}
+
+/* Rating Stars */
+.rating-stars {
+  color: #ffc107;
+}
+
+/* Badges styling */
+.badge-premium {
+  background: var(--primary-gradient);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Glassmorphism card */
+.card-glass {
+  background: var(--light-glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Active navigation link */
+.nav-link.active-custom {
+  color: #0d6efd !important;
+  font-weight: 600;
+  border-bottom: 2px solid #0d6efd;
+}
