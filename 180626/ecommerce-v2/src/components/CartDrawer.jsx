@@ -6,8 +6,9 @@ export default function CartDrawer({
   onRemove,
 }) {
   if (!isOpen) return null;
-  const total = cartItems.reduce(
-    (sum, item) => sum + item.price * item.quantity,
+  const items = cartItems || [];
+  const total = items.reduce(
+    (sum, item) => sum + (item.price || 0) * (item.quantity || 0),
     0,
   );
   return (
@@ -22,10 +23,10 @@ export default function CartDrawer({
             </span>
           </div>
           <div className="drawer-body">
-            {cartItems.length === 0 ? (
+            {items.length === 0 ? (
               <div className="text-center text-gray-500">Sepetiniz Boş</div>
             ) : (
-              cartItems.map((item) => (
+              items.map((item) => (
                 <div key={item.id} className="cart-item">
                   <div className="cart-item-img-box">
                     <img
@@ -37,26 +38,26 @@ export default function CartDrawer({
                   <div className="cart-item-info">
                     <h4 className="cart-item-title">{item.title}</h4>
                     <span className="cart-item-price">
-                      {item.price.toLocaleString("tr-TR")} TL
+                      {item.price?.toLocaleString("tr-TR")} TL
                     </span>
                     <div className="cart-item-qty">
                       <button
                         className="qty-btn"
-                        onClick={() => onUpdateQuantity(item.id, -1)}
+                        onClick={() => onUpdateQuantity && onUpdateQuantity(item.id, -1)}
                       >
                         -
                       </button>
                       <span className="qty-val">{item.quantity}</span>
                       <button
                         className="qty-btn"
-                        onClick={() => onUpdateQuantity(item.id, +1)}
+                        onClick={() => onUpdateQuantity && onUpdateQuantity(item.id, +1)}
                       >
                         +
                       </button>
                     </div>
                     <span
                       className="cart-item-remove"
-                      onClick={() => onRemove(item.id)}
+                      onClick={() => onRemove && onRemove(item.id)}
                     >
                       Kaldır
                     </span>

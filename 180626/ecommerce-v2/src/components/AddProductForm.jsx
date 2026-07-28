@@ -7,9 +7,9 @@ export default function AddProductForm({ categories, setView, onAddProduct }) {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    onAddProduct(data);
+    onAddProduct && onAddProduct(data);
     reset();
-    setView("home");
+    setView && setView("home");
   };
   return (
     <>
@@ -44,7 +44,7 @@ export default function AddProductForm({ categories, setView, onAddProduct }) {
                 })}
               >
                 <option value="">Seçiniz</option>
-                {categories
+                {(categories || [])
                   .filter((c) => c !== "Tümü")
                   .map((cat) => (
                     <option key={cat} value={cat}>
@@ -109,7 +109,7 @@ export default function AddProductForm({ categories, setView, onAddProduct }) {
             <button className="form-submit" type="submit">
               Ürünü Kaydet
             </button>
-            <span className="form-toggle-btn" onClick={()=>{reset();setView('home')}}>Geri Dön</span>
+            <span className="form-toggle-btn" onClick={()=>{reset();setView && setView('home')}}>Geri Dön</span>
           </form>
         </div>
       </main>

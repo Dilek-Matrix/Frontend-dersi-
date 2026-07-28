@@ -37,12 +37,12 @@ function App() {
     setProducts([newProduct, ...products]);
   };
 
-  const filteredProducts = products.filter((p) => {
+  const filteredProducts = (products || []).filter((p) => {
     const matchesCategory =
       selectedCategory === "Tümü" || p.category === selectedCategory;
     const matchesSearch =
-      p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      p.description.toLowerCase().includes(searchQuery.toLowerCase());
+      p.title?.toLowerCase().includes((searchQuery || "").toLowerCase()) ||
+      p.description?.toLowerCase().includes((searchQuery || "").toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
